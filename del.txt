@@ -1,0 +1,4 @@
+sk1.mlp.0.weight
+sk1.mlp.2.weight
+sk2.mlp.0.weight
+sk2.mlp.2.weight
