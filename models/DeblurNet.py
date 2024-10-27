@@ -111,7 +111,6 @@ class Rblock(nn.Module):
 		
 		self.Wg = nn.Sequential(
 			nn.Conv2d(channel, channel, 1),
-			# nn.Sigmoid()
 		)
 	
 	def forward(self, x):
@@ -136,7 +135,6 @@ class LKBlock(nn.Module):
 		
 		self.Wg1 = nn.Sequential(
 			nn.Conv2d(channel, channel, 1),
-			# nn.Sigmoid()
 		)
 		self.proj1 = nn.Conv2d(channel, channel, 1)
 	
@@ -146,7 +144,6 @@ class LKBlock(nn.Module):
 		x = self.R(x)
 		x1 = self.R(x)
 		x = self.proj(x + x1)
-		# x = self.proj(x )
 		
 		y = inp + x * self.w1
 		
@@ -201,7 +198,6 @@ class DeblurNet(nn.Module):
 		x = self.intro(blur)
 		skip = []
 		
-		# 编码
 		x = self.En1(x)
 		skip.append(x)
 		x = self.Down1(x)
@@ -212,7 +208,6 @@ class DeblurNet(nn.Module):
 		# Bottom
 		x = self.middle(x)
 		
-		# 解码
 		x = self.Up1(x)
 		x = skip[-1] + x
 		x = self.De1(x)
